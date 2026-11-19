@@ -1,95 +1,130 @@
-# Sistem Penilaian Mahasiswa Sederhana (Java)
+<div align="center">
 
-Tugas Pemrograman Berorientasi Objek, Kelompok 6
-Fakultas MIPA, Universitas Syiah Kuala
+# 🎓 Sistem Penilaian Mahasiswa
 
-**Anggota**
-- Al Aul Tsaqif (250810701100034)
-- M Farras Munawwir (250810701100004)
-- Imam Assadiq (250810701100079)
-- Syella Zikra Arifa (250810701100014)
+### Aplikasi penilaian sederhana berbasis Java dengan konsep OOP
 
-## Deskripsi
+![Java](https://img.shields.io/badge/Java-11%2B-orange?style=for-the-badge&logo=openjdk&logoColor=white)
+![OOP](https://img.shields.io/badge/Paradigma-OOP-2563eb?style=for-the-badge)
+![UI](https://img.shields.io/badge/UI-Swing%20%7C%20Console-16a34a?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Selesai-success?style=for-the-badge)
 
-Program berbasis konsol untuk mengelola data mahasiswa, menghitung nilai akhir berbobot, dan mengonversinya menjadi huruf mutu. Data disimpan sementara di memori selama program berjalan.
+📚 Tugas Mata Kuliah **Pemrograman Berorientasi Objek** · Kelompok 6
+🏛️ Fakultas MIPA, Universitas Syiah Kuala
 
-Konsep OOP yang diterapkan: kelas dan objek, encapsulation, constructor, dan method.
+</div>
 
-## Fitur
+---
 
-- Tambah data mahasiswa (nama, NIM, nilai tugas, UTS, UAS)
-- Validasi nilai 0 sampai 100 dan pengecekan NIM ganda
-- Perhitungan nilai akhir otomatis dan konversi ke huruf mutu A sampai E
-- Tampilan daftar semua mahasiswa dalam bentuk tabel
-- Rekap kelas: jumlah mahasiswa, rata-rata, nilai tertinggi, dan nilai terendah
+## 📖 Deskripsi
 
-## Struktur Proyek
+Program untuk mengelola data mahasiswa, **menghitung nilai akhir berbobot** secara otomatis, dan **mengonversinya menjadi huruf mutu**. Data disimpan sementara di memori selama program berjalan.
 
-```
-.
-├── Mahasiswa.java   # Kelas entitas: data dan logika penilaian
-├── Main.java        # Kelas eksekusi: menu dan interaksi pengguna
-└── README.md
-```
+Tersedia dalam **dua tampilan**: 🖥️ GUI (Swing) dan ⌨️ konsol.
 
-## Aturan Penilaian
+## ✨ Fitur
 
-Nilai akhir = (30% x Tugas) + (35% x UTS) + (35% x UAS)
+| Ikon | Fitur | Keterangan |
+|:---:|---|---|
+| ➕ | Tambah mahasiswa | Nama, NIM, nilai tugas, UTS, dan UAS |
+| ✅ | Validasi input | Nilai harus 0 sampai 100, NIM tidak boleh ganda |
+| 🧮 | Hitung otomatis | Nilai akhir berbobot dan huruf mutu A sampai E |
+| 📋 | Tabel daftar | Huruf mutu diberi warna agar mudah dibaca |
+| 📊 | Rekap kelas | Jumlah, rata-rata, nilai tertinggi, dan terendah |
+| 🗑️ | Hapus data | Hapus baris terpilih (versi GUI) |
 
-| Nilai Akhir | Huruf Mutu | Keterangan    |
-|-------------|------------|---------------|
-| 80 - 100    | A          | Sangat baik   |
-| 70 - < 80   | B          | Baik          |
-| 60 - < 70   | C          | Cukup         |
-| 50 - < 60   | D          | Kurang        |
-| < 50        | E          | Sangat kurang |
+## 🧠 Konsep OOP yang Diterapkan
 
-Contoh: Tugas 85, UTS 78, UAS 80 menghasilkan 25,5 + 27,3 + 28,0 = 80,80, yaitu huruf mutu A.
+- 🧱 **Class & Object**: `Mahasiswa` sebagai cetak biru data
+- 🔒 **Encapsulation**: atribut `private`, akses lewat getter dan setter
+- 🏗️ **Constructor**: atribut langsung terisi saat objek dibuat
+- ⚙️ **Method**: `hitungNilaiAkhir()` dan `hitungGrade()`
 
-## Kebutuhan
-
-- JDK 8 atau lebih baru (fitur `String.repeat` memerlukan JDK 11 atau lebih baru)
-
-## Cara Menjalankan
+## 📁 Struktur Proyek
 
 ```
-javac Mahasiswa.java Main.java
-java Main
+📦 sistem-penilaian
+ ┣ 📜 Mahasiswa.java   → kelas entitas: data dan logika penilaian
+ ┣ 🖥️ MainGUI.java     → tampilan GUI (Swing)
+ ┣ ⌨️ Main.java        → tampilan konsol (menu teks)
+ ┗ 📝 README.md
 ```
 
-Contoh tampilan:
+## 🧾 Aturan Penilaian
 
+> **Nilai Akhir = (30% × Tugas) + (35% × UTS) + (35% × UAS)**
+
+| Nilai Akhir | Mutu | Keterangan |
+|:---:|:---:|---|
+| 80 – 100 | 🟢 **A** | Sangat baik |
+| 70 – < 80 | 🔵 **B** | Baik |
+| 60 – < 70 | 🟡 **C** | Cukup |
+| 50 – < 60 | 🟠 **D** | Kurang |
+| < 50 | 🔴 **E** | Sangat kurang |
+
+💡 **Contoh:** Tugas 85, UTS 78, UAS 80 → 25,5 + 27,3 + 28,0 = **80,80** → Mutu **A**
+
+## 🚀 Cara Menjalankan
+
+**1️⃣ Pastikan JDK 11 atau lebih baru terpasang**
+
+```bash
+java -version
 ```
-===== SISTEM PENILAIAN MAHASISWA =====
-1. Tambah mahasiswa
-2. Tampilkan semua mahasiswa
-3. Rekap kelas
-0. Keluar
-Pilih menu:
+
+**2️⃣ Kompilasi**
+
+```bash
+javac Mahasiswa.java Main.java MainGUI.java
 ```
 
-## Desain Kelas
+**3️⃣ Jalankan salah satu**
 
-**Mahasiswa**
+```bash
+java MainGUI   # 🖥️ versi GUI
+java Main      # ⌨️ versi konsol
+```
 
-| Atribut (private) | Tipe   |
-|-------------------|--------|
-| nama              | String |
-| nim               | String |
-| nilaiTugas        | double |
-| nilaiUTS          | double |
-| nilaiUAS          | double |
+## 🏛️ Desain Kelas
 
-Method publik: konstruktor `Mahasiswa(nama, nim, nilaiTugas, nilaiUTS, nilaiUAS)`, `hitungNilaiAkhir()`, `hitungGrade()`, getter untuk semua atribut, dan setter nilai dengan validasi 0 sampai 100.
+**`Mahasiswa`**
 
-**Main** hanya berisi menu dan input/output. Logika penilaian seluruhnya ada di `Mahasiswa`.
+| Atribut | Tipe | Akses |
+|---|---|:---:|
+| `nama` | String | 🔒 private |
+| `nim` | String | 🔒 private |
+| `nilaiTugas` | double | 🔒 private |
+| `nilaiUTS` | double | 🔒 private |
+| `nilaiUAS` | double | 🔒 private |
 
-## Catatan
+Method publik: konstruktor `Mahasiswa(nama, nim, nilaiTugas, nilaiUTS, nilaiUAS)`, `hitungNilaiAkhir()`, `hitungGrade()`, getter semua atribut, dan setter nilai dengan validasi 0 sampai 100.
 
-- Jangan letakkan file Java lain yang punya `class Mahasiswa` di folder yang sama, karena akan bentrok dengan kelas di proyek ini.
-- Data tidak disimpan permanen dan hilang saat program ditutup.
+Kelas `Main` dan `MainGUI` hanya mengurus tampilan. Semua logika penilaian ada di `Mahasiswa` (*separation of concerns*).
 
-## Pengembangan Selanjutnya
+## ⚠️ Catatan
 
-- Penyimpanan data ke berkas atau basis data
-- Antarmuka grafis (Swing atau JavaFX)
+- 🚫 Jangan taruh file Java lain yang punya `class Mahasiswa` di folder yang sama, karena akan bentrok.
+- 💾 Data tidak tersimpan permanen dan hilang saat program ditutup.
+
+## 🔮 Rencana Pengembangan
+
+- [ ] 💾 Simpan data ke berkas atau basis data (MySQL)
+- [ ] 📤 Ekspor rekap ke CSV
+- [ ] 🔍 Cari dan urutkan data
+
+## 👥 Anggota Kelompok 6
+
+| | Nama | NIM |
+|:---:|---|---|
+| 👤 | Al Aul Tsaqif | 250810701100034 |
+| 👤 | M Farras Munawwir | 250810701100004 |
+| 👤 | Imam Assadiq | 250810701100079 |
+| 👤 | Syella Zikra Arifa | 250810701100014 |
+
+---
+
+<div align="center">
+
+⭐ Dibuat dengan ☕ dan Java oleh Kelompok 6 ⭐
+
+</div>
